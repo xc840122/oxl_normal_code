@@ -15,11 +15,12 @@ from higher_lower_game.welcome import welcome_screen
 # data prepared, convert json format to object
 # change data structure to be dict
 def json_data_handler():
-    compared_obj_list = []
-    for item in data:
-        compared_item = ComparedItem(item['name'], item['follower_count'],
-                                     item['description'], item['country'])
-        compared_obj_list.append(compared_item)
+    # compared_obj_list = []
+    # for item in data:
+    #     compared_item = ComparedItem(item['name'], item['follower_count'],
+    #                                  item['description'], item['country'])
+    #     compared_obj_list.append(compared_item)
+    compared_obj_list = [ComparedItem(**item) for item in data]  # Use ** to unpack dicts into the Person class
     return compared_obj_list
 
 
